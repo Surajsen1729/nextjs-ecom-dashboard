@@ -31,17 +31,19 @@ A high-performance, server-side rendered (SSR) administrative dashboard for mana
 
 Follow these steps to run the project locally.
 
-### 1. Clone the repository
+### 
+1. Clone the repository
 ```bash
 git clone [https://github.com/Surajsen1729/nextjs-ecom-dashboard.git](https://github.com/Surajsen1729/nextjs-ecom-dashboard.git)
 cd nextjs-ecom-dashboard
 
-### 2. Install dependencies
-```bash
+
+2. Install dependencies
+
 npm install
 
-### 3. Environment Setup
-```bash
+3. Environment Setup
+
 Create a .env file in the root directory and add your credentials:
 
 Code snippet
@@ -51,23 +53,23 @@ DATABASE_URL="mongodb+srv://<username>:<password>@cluster0.mongodb.net/ecom-dash
 # Cloudinary Credentials
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your_cloud_name"
 
-### 4. Database Synchronization
-```bash
+4. Database Synchronization
+
 Push the Prisma schema to your MongoDB database:
 
 Bash
 npx prisma db push
 
-### 5. Run the application
-```bash
+5. Run the application
+
 Start the development server:
 
 Bash
 npm run dev
 Open http://localhost:3000 to view the dashboard.
 
-### Project Structure
-```bash
+Project Structure
+
 Plaintext
 src/
 ├── app/                  
@@ -80,8 +82,8 @@ src/
 ├── lib/                  # Database & Utility configurations
 └── prisma/               # Database Schema
 
-### Validation Rules
-```bash
+Validation Rules
+
 The application enforces strict data integrity:
 
 Product Name: Must be at least 2 characters.
@@ -95,10 +97,10 @@ Image: Required for all products.
 Developed by Surajsen1729
 
 
-### **Final Step: Upload to GitHub**
-```bash
+**Final Step: Upload to GitHub**
+
 After pasting this, run these 3 commands to finish your project:
-```bash
+
 git add README.md
 git commit -m "Add final documentation"
 git push
