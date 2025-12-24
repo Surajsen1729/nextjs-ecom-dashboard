@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js E-commerce Dashboard
 
-## Getting Started
+A high-performance, server-side rendered (SSR) administrative dashboard for managing e-commerce inventory. Built with **Next.js 15**, **Prisma**, and **MongoDB**, featuring real-time data visualization, secure image uploads, and advanced multi-step form validation.
 
-First, run the development server:
+## 🚀 Key Features
 
+* **Server-Side Rendering (SSR):** Optimized performance and SEO using the Next.js App Router.
+* **Complete CRUD:** Create, Read, Update, and Delete products seamlessly.
+* **Smart Inventory Management:**
+    * **Stock Adjuster:** Interactive `+` and `-` buttons to update stock levels instantly without page reloads.
+    * **Visual Analytics:** Interactive bar charts showing real-time stock levels (via Recharts).
+* **Advanced Product Creation:**
+    * **Multi-Step Wizard:** A user-friendly 3-step form (Details → Inventory → Media) for adding products.
+    * **Robust Validation:** Strong server-side and client-side validation using **Zod** and **React Hook Form**.
+    * **Strict Input Rules:** Custom Regex validation ensures product names contain only letters (no numbers or special characters).
+    * **Image Uploads:** Secure drag-and-drop image hosting via **Cloudinary**.
+* **Database:** Fully integrated with MongoDB using Prisma ORM.
+
+## 🛠️ Tech Stack
+
+* **Framework:** Next.js 15 (App Router)
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS
+* **Database:** MongoDB (Atlas)
+* **ORM:** Prisma
+* **Forms & Validation:** React Hook Form + Zod
+* **Charts:** Recharts
+* **Image Storage:** Cloudinary
+
+## 📦 Setup Instructions
+
+Follow these steps to run the project locally.
+
+### 1. Clone the repository
 ```bash
+git clone [https://github.com/Surajsen1729/nextjs-ecom-dashboard.git](https://github.com/Surajsen1729/nextjs-ecom-dashboard.git)
+cd nextjs-ecom-dashboard
+2. Install dependencies
+
+Bash
+npm install
+3. Environment Setup
+
+Create a .env file in the root directory and add your credentials:
+
+Code snippet
+# MongoDB Connection String
+DATABASE_URL="mongodb+srv://<username>:<password>@cluster0.mongodb.net/ecom-dashboard"
+
+# Cloudinary Credentials
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your_cloud_name"
+4. Database Synchronization
+
+Push the Prisma schema to your MongoDB database:
+
+Bash
+npx prisma db push
+5. Run the application
+
+Start the development server:
+
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 to view the dashboard.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📂 Project Structure
+Plaintext
+src/
+├── app/                  
+│   ├── products/new/     # Multi-step Product Creation Wizard (Client Component)
+│   └── page.tsx          # Main Dashboard (SSR: Metrics, Chart, & Table)
+├── components/           
+│   ├── charts/           # Recharts Visualization Components
+│   ├── ui/               # Reusable UI (StockAdjuster, ImageUpload, DeleteButton)
+├── actions/              # Server Actions (Backend Logic & Zod Validation)
+├── lib/                  # Database & Utility configurations
+└── prisma/               # Database Schema
+🛡️ Validation Rules
+The application enforces strict data integrity:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Product Name: Must be at least 2 characters.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Price: Must be a positive number greater than 0.10.
 
-## Learn More
+Stock: Must be a non-negative integer.
 
-To learn more about Next.js, take a look at the following resources:
+Image: Required for all products.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Developed by Surajsen1729
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### **Final Step: Upload to GitHub**
+After pasting this, run these 3 commands to finish your project:
+```bash
+git add README.md
+git commit -m "Add final documentation"
+git push
