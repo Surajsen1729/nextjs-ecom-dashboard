@@ -2,7 +2,7 @@
 
 A high-performance, server-side rendered (SSR) administrative dashboard for managing e-commerce inventory. Built with **Next.js 15**, **Prisma**, and **MongoDB**, featuring real-time data visualization, secure image uploads, and advanced multi-step form validation.
 
-## Key Features
+## 🚀 Key Features
 
 * **Server-Side Rendering (SSR):** Optimized performance and SEO using the Next.js App Router.
 * **Complete CRUD:** Create, Read, Update, and Delete products seamlessly.
@@ -16,7 +16,7 @@ A high-performance, server-side rendered (SSR) administrative dashboard for mana
     * **Image Uploads:** Secure drag-and-drop image hosting via **Cloudinary**.
 * **Database:** Fully integrated with MongoDB using Prisma ORM.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 * **Framework:** Next.js 15 (App Router)
 * **Language:** TypeScript
@@ -27,50 +27,27 @@ A high-performance, server-side rendered (SSR) administrative dashboard for mana
 * **Charts:** Recharts
 * **Image Storage:** Cloudinary
 
-## Setup Instructions
+## 📦 Setup Instructions
 
 Follow these steps to run the project locally.
 
-### 
-1. Clone the repository
+### 1. Clone the repository
 ```bash
 git clone [https://github.com/Surajsen1729/nextjs-ecom-dashboard.git](https://github.com/Surajsen1729/nextjs-ecom-dashboard.git)
 cd nextjs-ecom-dashboard
 
-
-2. Install dependencies
-
 npm install
 
-3. Environment Setup
-
-Create a .env file in the root directory and add your credentials:
-
-Code snippet
 # MongoDB Connection String
 DATABASE_URL="mongodb+srv://<username>:<password>@cluster0.mongodb.net/ecom-dashboard"
 
 # Cloudinary Credentials
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your_cloud_name"
 
-4. Database Synchronization
-
-Push the Prisma schema to your MongoDB database:
-
-Bash
 npx prisma db push
 
-5. Run the application
-
-Start the development server:
-
-Bash
 npm run dev
-Open http://localhost:3000 to view the dashboard.
 
-Project Structure
-
-Plaintext
 src/
 ├── app/                  
 │   ├── products/new/     # Multi-step Product Creation Wizard (Client Component)
@@ -82,25 +59,14 @@ src/
 ├── lib/                  # Database & Utility configurations
 └── prisma/               # Database Schema
 
-Validation Rules
 
+Validation Rules
 The application enforces strict data integrity:
 
-Product Name: Must be at least 2 characters.
+Product Name: Must be at least 2 characters, containing letters only (no numbers or symbols).
 
 Price: Must be a positive number greater than 0.10.
 
 Stock: Must be a non-negative integer.
 
 Image: Required for all products.
-
-Developed by Surajsen1729
-
-
-**Final Step: Upload to GitHub**
-
-After pasting this, run these 3 commands to finish your project:
-
-git add README.md
-git commit -m "Add final documentation"
-git push
