@@ -2,7 +2,7 @@
 
 A high-performance, server-side rendered (SSR) administrative dashboard for managing e-commerce inventory. Built with **Next.js 15**, **Prisma**, and **MongoDB**, featuring real-time data visualization, secure image uploads, and advanced multi-step form validation.
 
-## 🚀 Key Features
+## Key Features
 
 * **Server-Side Rendering (SSR):** Optimized performance and SEO using the Next.js App Router.
 * **Complete CRUD:** Create, Read, Update, and Delete products seamlessly.
@@ -16,7 +16,7 @@ A high-performance, server-side rendered (SSR) administrative dashboard for mana
     * **Image Uploads:** Secure drag-and-drop image hosting via **Cloudinary**.
 * **Database:** Fully integrated with MongoDB using Prisma ORM.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Framework:** Next.js 15 (App Router)
 * **Language:** TypeScript
@@ -27,7 +27,7 @@ A high-performance, server-side rendered (SSR) administrative dashboard for mana
 * **Charts:** Recharts
 * **Image Storage:** Cloudinary
 
-## 📦 Setup Instructions
+## Setup Instructions
 
 Follow these steps to run the project locally.
 
@@ -63,7 +63,7 @@ Bash
 npm run dev
 Open http://localhost:3000 to view the dashboard.
 
-📂 Project Structure
+Project Structure
 Plaintext
 src/
 ├── app/                  
@@ -75,7 +75,7 @@ src/
 ├── actions/              # Server Actions (Backend Logic & Zod Validation)
 ├── lib/                  # Database & Utility configurations
 └── prisma/               # Database Schema
-🛡️ Validation Rules
+Validation Rules
 The application enforces strict data integrity:
 
 Product Name: Must be at least 2 characters.
