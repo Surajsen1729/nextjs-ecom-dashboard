@@ -35,11 +35,13 @@ Follow these steps to run the project locally.
 ```bash
 git clone [https://github.com/Surajsen1729/nextjs-ecom-dashboard.git](https://github.com/Surajsen1729/nextjs-ecom-dashboard.git)
 cd nextjs-ecom-dashboard
-2. Install dependencies
+
+### 2. Install dependencies
 
 Bash
 npm install
-3. Environment Setup
+
+### 3. Environment Setup
 
 Create a .env file in the root directory and add your credentials:
 
@@ -49,13 +51,15 @@ DATABASE_URL="mongodb+srv://<username>:<password>@cluster0.mongodb.net/ecom-dash
 
 # Cloudinary Credentials
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your_cloud_name"
-4. Database Synchronization
+
+### 4. Database Synchronization
 
 Push the Prisma schema to your MongoDB database:
 
 Bash
 npx prisma db push
-5. Run the application
+
+### 5. Run the application
 
 Start the development server:
 
@@ -63,7 +67,7 @@ Bash
 npm run dev
 Open http://localhost:3000 to view the dashboard.
 
-Project Structure
+### Project Structure
 Plaintext
 src/
 ├── app/                  
@@ -75,7 +79,8 @@ src/
 ├── actions/              # Server Actions (Backend Logic & Zod Validation)
 ├── lib/                  # Database & Utility configurations
 └── prisma/               # Database Schema
-Validation Rules
+
+### Validation Rules
 The application enforces strict data integrity:
 
 Product Name: Must be at least 2 characters.
