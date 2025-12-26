@@ -65,3 +65,33 @@ export async function updateStock(id: string, newStock: number) {
   // 3. Refresh the UI
   revalidatePath("/");
 }
+
+// ... inside actions/productActions.ts
+
+export async function editProduct(id: string, formData: FormData) {
+  const data = {
+    name: formData.get("name") as string,
+    description: formData.get("description") as string,
+    price: parseFloat(formData.get("price") as string),
+    stock: parseInt(formData.get("stock") as string),
+    imageUrl: formData.get("imageUrl") as string,
+  };
+
+  // 1. Validate using the same schema (letters only, etc.)
+  const validated = productSchema.safeParse(data);
+
+  if (!validated.success) {
+    return { error: validated.error.flatten().fieldErrors };
+  }
+
+  // 2. Update Database
+  await prisma.product.update({
+    where: { id },
+    data: validated.data,
+  });
+
+  // 3. Refresh Cache & Redirect
+  revalidatePath("/");
+  redirect("/");
+}
+

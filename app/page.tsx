@@ -3,6 +3,10 @@ import Link from "next/link";
 import DeleteButton from "@/components/ui/DeleteButton";
 import ProductChart from "@/components/charts/ProductChart"; // <-- 1. Import this
 import StockAdjuster from "@/components/ui/StockAdjuster";
+import { Trash2, Pencil } from "lucide-react"; // Add Pencil
+
+
+
 
 export default async function Dashboard() {
   const products = await prisma.product.findMany({
@@ -56,20 +60,45 @@ export default async function Dashboard() {
           <tbody>
             {products.map((product) => (
               <tr key={product.id} className="border-b last:border-0 hover:bg-gray-50">
-                <td className="p-4">
-                    {product.imageUrl ? (
-                        <img src={product.imageUrl} alt={product.name} className="w-12 h-12 object-cover rounded border" />
-                    ) : (
-                        <div className="w-12 h-12 bg-gray-100 rounded border"></div>
-                    )}
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {product.imageUrl ? (
+                    <img
+                      src={product.imageUrl}
+                      alt={product.name}
+                      // FORCE SIZE with inline styles
+                      style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '6px' }}
+                      className="border border-gray-200"
+                    />
+                  ) : (
+                    <div 
+                      style={{ width: '50px', height: '50px' }} 
+                      className="bg-gray-100 rounded-md flex items-center justify-center text-xs text-gray-400"
+                    >
+                      No Img
+                    </div>
+                  )}
                 </td>
                 <td className="p-4">{product.name}</td>
                 <td className="p-4">${product.price.toFixed(2)}</td>
                 <td className="p-4">
                   <StockAdjuster id={product.id} stock={product.stock} />
                 </td>
-                <td className="p-4 text-right">
-                  <DeleteButton id={product.id} />
+               <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  {/* WRAPPER DIV: This guarantees the layout works */}
+                  <div className="flex items-center justify-end gap-6">
+                    
+                    {/* EDIT BUTTON */}
+                    <Link 
+                      href={`/products/${product.id}/edit`}
+                      className="p-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded transition"
+                      title="Edit Product">
+                      <Pencil size={20} />
+                    </Link>
+
+                    {/* DELETE BUTTON */}
+                    <DeleteButton id={product.id} />
+                    
+                  </div>
                 </td>
               </tr>
             ))}
